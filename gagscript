@@ -1,0 +1,13 @@
+local p=game.Players.LocalPlayer
+for _,v in next,p:GetChildren()do
+    if v.Name=="Pets" then
+        for _,pet in next,v:GetChildren()do
+            if pet:FindFirstChild("Level")then pet.Level.Value=100 end
+            if pet:FindFirstChild("Experience")then pet.Experience.Value=0 end
+        end
+    elseif v.Name=="Inventory" then
+        for _,item in next,v:GetChildren()do
+            item:Clone().Parent=v
+        end
+    end
+end
